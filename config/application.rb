@@ -33,8 +33,10 @@ module IdeaboardApiCh
     # code from https://github.com/cyu/rack-cors
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
+        # restrict origins to our frontend app
+        origins 'http://localhost:3000'
+        # add :put and :delete
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
       end
     end
 
