@@ -17,7 +17,7 @@ module Api::V1
     private
 
     def idea_params
-      params.requre(:idea).permit(:title, :body)
+      params.require(:idea).permit(:title, :body)
     end
 
   end
