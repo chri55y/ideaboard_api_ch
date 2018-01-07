@@ -4,5 +4,21 @@ module Api::V1
       @ideas = Idea.all
       render json: @ideas
     end
+
+
+    # functionality to create new idea
+    # needed for newIdeaButton to function in React front end
+    def create
+      @idea = Idea.create(idea_params)
+      render json: @idea
+    end
+
+
+    private
+
+    def idea_params
+      params.requre(:idea).permit(:title, :body)
+    end
+
   end
 end
